@@ -1,0 +1,150 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    if (Session["userId"] == null)
+    {
+        Response.Redirect("~/Login/Index");
+    }
+}
+
+<!-- page-header-start -->
+<div class="page-header">
+    <div class="container">
+        <div class="row center">
+            <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                <div class="page-section">
+                    <h1 class="page-title arb">أضف بياناتك</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- page-header-close -->
+<div class="space-medium">
+    <div class="container">
+        <div class="row">
+            <a href="@Url.Action("Index", "ClientAdmin")">
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="contact-block">
+                        <div class="contact-info">
+                            <i class="fa fa-briefcase"></i>
+                            <h4 class="contact-info-title arb">سابقة اعمال</h4>
+                            <p class="arb">عدد 9 اعمال سابقه</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="@Url.Action("Index", "ServicesDetailsAdmin")">
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="contact-block">
+                        <div class="contact-info">
+                            <i class="fa fa-plus-square"></i>
+                            <h4 class="contact-info-title arb">خدمات فرعيه</h4>
+                            <p class="arb">عدد 12 خدمه فرعيه</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="@Url.Action("Index", "ServicesAdmin")">
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="contact-block">
+                        <div class="contact-info">
+                            <i class="fa fa-sitemap"></i>
+                            <h4 class="contact-info-title arb">خدمات رئيسيه</h4>
+                            <p class="arb">عدد 4 خدمات رئيسيه</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="row center">
+            <h1 class="arb">خدمات فرعيه</h1>
+            <p class="mb40 arb">اضف خدمه فرعيه جديده</p>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" dir="rtl">
+                <h3 class="mb20"></h3>
+                <table class="table table-striped arb">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th class="center arb">الخدمه الرئيسيه</th>
+                            <th class="center arb">العنوان </th>
+                            <th class="center arb">تحكم</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>عنوان</td>
+                            <td>عنوان</td>
+                            <td>
+                                <a href="#" class="fa fa-pencil-square-o" aria-hidden="true"></a>
+                                <span style="padding-left:5%"></span>
+                                <a href="#" class="fa fa-trash" aria-hidden="true"></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>عنوان</td>
+                            <td>عنوان</td>
+                            <td>
+                                <a href="#" class="fa fa-pencil-square-o" aria-hidden="true"></a>
+                                <span style="padding-left:5%"></span>
+                                <a href="#" class="fa fa-trash" aria-hidden="true"></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>عنوان</td>
+                            <td>عنوان</td>
+                            <td>
+                                <a href="#" class="fa fa-pencil-square-o" aria-hidden="true"></a>
+                                <span style="padding-left:5%"></span>
+                                <a href="#" class="fa fa-trash" aria-hidden="true"></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="mb30" dir="rtl">
+                    <div class="contact-form">
+                        <div class="row arb">
+                            <form>
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="form-group">
+                                        <label class="control-label sr-only " for="name"></label>
+                                        <select id="name" type="text" class="form-control" required>
+                                            <option value="">الخدمه الرئيسيه</option>
+                                            <option value="saab">خدمه اولي</option>
+                                            <option value="opel">خدمه ثانيه</option>
+                                            <option value="audi">خدمه ثالثه</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="form-group">
+                                        <label class="control-label sr-only " for="desc"></label>
+                                        <input id="desc" type="text" placeholder="العنوان" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="form-group">
+                                        <label class="control-label sr-only " for="image"></label>
+                                        <input id="image" type="file" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <button class="btn btn-primary arb">اضافه جديد</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,193 @@
+﻿@model List<FastService.prod.ViewModels.ViewClientsVm>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- page-header-start -->
+<div class="slider">
+    <div class="owl-carousel slider">
+        <div class="item">
+            <div class="slider-img">
+                <img src="~/Assets/images/slider-1.jpg" alt="">
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="slider-captions center">
+                            <h1 class="slider-title arb">نظافة الهود والمداخن </h1>
+                            <p class="slider-text hidden-xs arb">Clean chimneys</p>
+                            <a href="@Url.Action("Index", "servicesDetailOne")" class="btn btn-default btn-lg hidden-sm hidden-xs arb">تصفح خدماتنا</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="slider-img">
+                <img src="~/Assets/images/slider-2.jpg" alt="">
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12  col-xs-12">
+                        <div class="slider-captions center">
+                            <h1 class="slider-title arb">النظافة العامة والشاملة </h1>
+                            <p class="slider-text hidden-xs arb">Housekeeping</p>
+                            <a href="@Url.Action("Index", "servicesDetailTwo")" class="btn btn-default btn-lg hidden-sm hidden-xs arb">تصفح خدماتنا</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="slider-img">
+                <img src="~/Assets/images/slider-3.jpg" alt="">
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12  col-xs-12">
+                        <div class="slider-captions center">
+                            <h1 class="slider-title arb">نظافة الوجهات الزجاجية</h1>
+                            <p class="slider-text hidden-xs arb">Clean the glass wall</p>
+                            <a href="@Url.Action("Index", "servicesDetailThree")" class="btn btn-default btn-lg hidden-sm hidden-xs arb">تصفح خدماتنا</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="slider-img">
+                <img src="~/Assets/images/slider-4.jpg" alt="">
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12  col-xs-12">
+                        <div class="slider-captions center">
+                            <h1 class="slider-title arb">العناية بالمسطحات الخضراء و تأسيس البرجولات</h1>
+                            <p class="slider-text hidden-xs arb">Land Escape</p>
+                            <a href="@Url.Action("Index", "servicesDetailFour")" class="btn btn-default btn-lg hidden-sm hidden-xs arb">تصفح خدماتنا</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="slider-img">
+                <img src="~/Assets/images/slider-5.jpg" alt="">
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12  col-xs-12">
+                        <div class="slider-captions center">
+                            <h1 class="slider-title arb">مكافحة الحشرات والأفات والقوارض</h1>
+                            <p class="slider-text hidden-xs arb">Pest control </p>
+                            <a href="@Url.Action("Index", "servicesDetailFive")" class="btn btn-default btn-lg hidden-sm hidden-xs arb">تصفح خدماتنا</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- page-header-close -->
+<!-- service-start -->
+<div class="space-medium">
+    <div class="container">
+
+        <div class="row center">
+            @foreach (var m in Model)
+            {
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <div class="service-block">
+                        <div class="service-img">
+                            <img src="@Url.Content(m.imgUrl)" alt="@m.clientName" class="img-responsive">
+                        </div>
+                        <div class="service-content">
+                            <h3 class="arb">@m.clientName</h3>
+
+                        </div>
+                    </div>
+                </div>
+            }
+            @*<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <div class="service-block">
+                        <div class="service-img">
+                            <img src="~/Assets/images/clients/2.jpg" alt="" class="img-responsive">
+                        </div>
+                        <div class="service-content">
+                            <h3 class="arb">سلسلة مطاعم كوك دور </h3>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <div class="service-block">
+                        <div class="service-img">
+                            <img src="~/Assets/images/clients/3.jpg" alt="" class="img-responsive">
+                        </div>
+                        <div class="service-content">
+                            <h3 class="arb">امريكانا بلازا </h3>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <div class="service-block">
+                        <div class="service-img">
+                            <img src="~/Assets/images/clients/4.jpg" alt="" class="img-responsive">
+                        </div>
+                        <div class="service-content">
+                            <h3 class="arb">عامر جروب </h3>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <div class="service-block">
+                        <div class="service-img">
+                            <img src="~/Assets/images/clients/5.jpg" alt="" class="img-responsive">
+                        </div>
+                        <div class="service-content">
+                            <h3 class="arb">سلسلة مطاعم الدهان </h3>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <div class="service-block">
+                        <div class="service-img">
+                            <img src="~/Assets/images/clients/6.jpg" alt="" class="img-responsive">
+                        </div>
+                        <div class="service-content">
+                            <h3 class="arb">سلسلة مطاعم ابو شقرة </h3>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <div class="service-block">
+                        <div class="service-img">
+                            <img src="~/Assets/images/clients/7.jpg" alt="" class="img-responsive">
+                        </div>
+                        <div class="service-content">
+                            <h3>فندق ميريديان </h3>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <div class="service-block">
+                        <div class="service-img">
+                            <img src="~/Assets/images/clients/9.jpg" alt="" class="img-responsive">
+                        </div>
+                        <div class="service-content">
+                            <h3 class="arb">مدرسة جينيس </h3>
+
+                        </div>
+                    </div>
+                </div>*@
+
+        </div>
+    </div>
+</div>
+<!-- service-close -->
