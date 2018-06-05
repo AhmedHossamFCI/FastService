@@ -1,4 +1,6 @@
-﻿
+﻿@using System.Web.UI.WebControls
+@model FastService.prod.ViewModels.ContactVm
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -57,43 +59,44 @@
                         <h1 class="arb">ابقى على تواصل معنا</h1>
                         <p class="mb40 arb">سنبذل قصارى جهدنا للرد في أقرب وقت ممكن .</p>
                         <div class="row arb">
-                            <form>
+                            @using (Html.BeginForm("Index", "Contactus", FormMethod.Post))
+                            {
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                     <div class="form-group">
-                                        <label class="control-label sr-only " for="name"></label>
-                                        <input id="name" type="text" placeholder="الاسم" class="form-control">
+                                        @Html.LabelFor(m => m.Name, new { @class = "control-label sr-only" })
+                                        @Html.EditorFor(m => m.Name, new { htmlAttributes = new { @class = "form-control", placeholder = "الاسم", required = "required" } })
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                     <div class="form-group">
-                                        <label class="control-label sr-only " for="email"></label>
-                                        <input id="email" type="text" placeholder="ايميل" class="form-control">
+                                        @Html.LabelFor(m => m.Email, new { @class = "control-label sr-only" })
+                                        @Html.EditorFor(m => m.Email, new { htmlAttributes = new { @class = "form-control", placeholder = "ايميل", required = "required" } })
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                     <div class="form-group">
-                                        <label class="control-label sr-only " for="phone"></label>
-                                        <input id="phone" type="text" placeholder="رقم موبيل تانى" class="form-control">
+                                        @Html.LabelFor(m => m.Phone2, new { @class = "control-label sr-only" })
+                                        @Html.EditorFor(m => m.Phone2, new { htmlAttributes = new { @class = "form-control", placeholder = "رقم موبيل تانى", required = "required" } })
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                     <div class="form-group">
-                                        <label class="control-label sr-only " for="phone"></label>
-                                        <input id="phone" type="text" placeholder="رقم موبيل اول" class="form-control">
+                                        @Html.LabelFor(m => m.Phone1, new { @class = "control-label sr-only" })
+                                        @Html.EditorFor(m => m.Phone1, new { htmlAttributes = new { @class = "form-control", placeholder = "رقم موبيل اول", required = "required" } })
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <div class="form-group">
-                                        <label class="control-label sr-only" for="textarea"></label>
-                                        <textarea class="form-control" id="textarea" name="textarea" rows="4" placeholder="نص الرساله"></textarea>
+                                        @Html.LabelFor(m => m.Message, new { @class = "control-label sr-only" })
+                                        @Html.EditorFor(m => m.Message, new { htmlAttributes = new { @class = "form-control", placeholder = "نص الرساله", required = "required" } })
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <button class="btn btn-primary arb">ارسال الرسااله</button>
                                 </div>
+                            }
                         </div>
                     </div>
-                    </form>
                 </div>
             </div>
         </div>

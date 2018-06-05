@@ -3,87 +3,53 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Net.Mail;
+using FastService.prod.ViewModels;
 
 namespace FastService.prod.Controllers
 {
-    public class contactusController : Controller
+    public class ContactusController : Controller
     {
         // GET: contactus
+        [HttpGet]
         public ActionResult Index()
         {
+
             return View();
         }
-
-        // GET: contactus/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        // GET: contactus/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: contactus/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Index(ContactVm vm)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add insert logic here
+                try
+                {
+                    MailMessage mailMessage = new MailMessage();
+                    mailMessage.From = new MailAddress(vm.Email);
+                    mailMessage.To.Add("emailaddrss@gmail.com");//for testing :D 
+                    mailMessage.Subject = " Name: " + vm.Name + "Phone 1: " + vm.Phone1 + "Phone 2: " + vm.Phone2;
+                    mailMessage.Body = vm.Message;
+                    SmtpClient smtpClient = new SmtpClient()
+                    {
+                        Host = "smtp.gmail.com",
+                        Port = 587,
+                        Credentials = new System.Net.NetworkCredential("YourMail@gmail.com","YourPassword"),
+                        EnableSsl = true
+                    };
+                    smtpClient.Send(mailMessage);
+                    ModelState.Clear();
+                    //ViewBag.Message = "Thank you for contacting us";
 
-                return RedirectToAction("Index");
+                }
+                catch (Exception e)
+                {
+                    ModelState.Clear();
+                    //ViewBag.Message = $"Sorry we are facing problem here {e.Message}";
+                }
             }
-            catch
-            {
-                return View();
-            }
-        }
 
-        // GET: contactus/Edit/5
-        public ActionResult Edit(int id)
-        {
             return View();
         }
 
-        // POST: contactus/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: contactus/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: contactus/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
     }
 }

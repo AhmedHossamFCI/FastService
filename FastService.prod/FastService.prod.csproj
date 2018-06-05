@@ -242,6 +242,7 @@
       <DependentUpon>201806011108178_Init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="ViewModels\ContactVm.cs" />
     <Compile Include="Models\FastServicesDM.cs" />
     <Compile Include="Models\LastWork.cs" />
     <Compile Include="Models\MainService.cs" />
